@@ -34,9 +34,11 @@ var todolistControl = Widget.list({
     {
       render: function (data) {
         var checkBoxContrl = Widget.checkbox({
-          done: true,
+          done: data.done,
           onChange: function (e) {
             data.done = e.target.checked;
+            todolistControl.reload(getSortedTodoList({ done: false }));
+            donelistControl.reload(getSortedTodoList({ done: true }));
           },
         });
         return checkBoxContrl.el;
@@ -59,7 +61,8 @@ var todolistControl = Widget.list({
           onClick: function () {
             // splice
             todolist.splice(todolist.indexOf(data), 1);
-            todolistControl.reload(todolist);
+            todolistControl.reload(getSortedTodoList({ done: false }));
+            donelistControl.reload(getSortedTodoList({ done: true }));
           },
         });
         return delBtnContrl.el;
@@ -75,9 +78,11 @@ var donelistControl = Widget.list({
     {
       render: function (data) {
         var checkBoxContrl = Widget.checkbox({
-          done: false,
+          done: data.done,
           onChange: function (e) {
             data.done = e.target.checked;
+            todolistControl.reload(getSortedTodoList({ done: false }));
+            donelistControl.reload(getSortedTodoList({ done: true }));
           },
         });
         return checkBoxContrl.el;
@@ -100,7 +105,8 @@ var donelistControl = Widget.list({
           onClick: function () {
             // splice
             todolist.splice(todolist.indexOf(data), 1);
-            todolistControl.reload(todolist);
+            todolistControl.reload(getSortedTodoList({ done: false }));
+            donelistControl.reload(getSortedTodoList({ done: true }));
           },
         });
         return delBtnContrl.el;
