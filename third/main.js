@@ -1,26 +1,6 @@
-function Menu(name, time) {
-  this.name = name;
-  this.time = time;
-}
-
-function Chef() {
-  this.status = "ready";
-}
-
-Chef.prototype.isAvailable = function () {
-  return this.status === "ready";
-};
-
-Chef.prototype.cookAsync = function (menu) {
-  var chef = this;
-  chef.status = "cooking";
-  return new Promise(function (resolve) {
-    setTimeout(function () {
-      chef.status = "ready";
-      resolve();
-    }, menu.time);
-  });
-};
+import { Chef } from "./Chef.js";
+import { Server } from "./Server.js";
+import { Menu } from "./Menu.js";
 
 function findChefAsync() {
   return new Promise(function (resolve) {
@@ -37,26 +17,6 @@ function findChefAsync() {
   });
 }
 
-function Server(time) {
-  this.status = "ready"; //, serving
-  this.time = time;
-}
-
-Server.prototype.isAvailable = function () {
-  return this.status === "ready";
-};
-
-Server.prototype.serveAsync = function () {
-  var server = this;
-  server.status = "serving";
-  return new Promise(function (resolve) {
-    setTimeout(function () {
-      server.status = "ready";
-      resolve();
-    }, server.time);
-  });
-};
-
 function findServerAsync() {
   return new Promise(function (resolve) {
     var timer = setInterval(function () {
@@ -70,6 +30,7 @@ function findServerAsync() {
     }, 100);
   });
 }
+
 var orders = [];
 var cookings = [];
 var servings = [];
