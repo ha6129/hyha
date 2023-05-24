@@ -1,5 +1,6 @@
-export function Chef() {
+export function Chef(name) {
   this.status = "ready";
+  this.name = name;
 }
 
 Chef.prototype.isAvailable = function () {

@@ -1,6 +1,7 @@
-export function Server(time) {
+export function Server(time, name) {
   this.status = "ready"; //, serving
   this.time = time;
+  this.name = name;
 }
 
 Server.prototype.isAvailable = function () {
