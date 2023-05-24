@@ -38,32 +38,27 @@ var servings = [];
 var chefs = [new Chef(), new Chef()];
 var servers = [new Server(1000), new Server(2000)];
 
+function render(data, containerId) {
+  var containerEl = document.getElementById(containerId);
+  containerEl.innerHTML = "";
+
+  data.forEach(function (item) {
+    var liEl = document.createElement("li");
+    liEl.textContent = item.name;
+    containerEl.append(liEl);
+  });
+}
+
 function renderOrders() {
-  var ordersEl = document.getElementById("orders");
-  ordersEl.innerHTML = "";
-  orders.forEach(function (order) {
-    var liEl = document.createElement("li");
-    liEl.textContent = order.name;
-    ordersEl.append(liEl);
-  });
+  render(orders, "orders");
 }
+
 function renderCookings() {
-  var cookingsEl = document.getElementById("cookings");
-  cookingsEl.innerHTML = "";
-  cookings.forEach(function (cooking) {
-    var liEl = document.createElement("li");
-    liEl.textContent = cooking.name;
-    cookingsEl.append(liEl);
-  });
+  render(cookings, "cookings");
 }
+
 function renderServings() {
-  var servingsEl = document.getElementById("servings");
-  servingsEl.innerHTML = "";
-  servings.forEach(function (serving) {
-    var liEl = document.createElement("li");
-    liEl.textContent = serving.name;
-    servingsEl.append(liEl);
-  });
+  render(servings, "servings");
 }
 
 document.getElementById("sundae").onclick = function () {
