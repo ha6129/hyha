@@ -1,0 +1,43 @@
+﻿
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+@section Scripts{
+    <script src="~/Scripts/Sal.js"></script>
+}
+<br />
+<br />
+<div>
+    <input type="text" id="index" hidden />
+    <div id="CustomerList">
+        <label for="customer">거래처:</label>
+        <!-- datalist -->
+        <input type="text" id="Customer" list="selecbox">
+        <datalist id="selecbox"></datalist>
+    </div>
+    <div id="datetime">
+        <label for="date">일자:</label>
+        <input type="date" id="date" value="">
+    </div>
+    <div id="ProductList">
+        <label for="customer">품목:</label>
+        <!-- datalist -->
+        <input type="text" id="Product" list="selecbox2">
+        <datalist id="selecbox2"></datalist>
+    </div>
+
+    <div id="quan">
+        <label for="quantity">수량:</label>
+        <input type="number" id="quantity">
+    </div>
+    <br />
+    <br />
+    <button id="BtnInput" onclick="@ViewBag.button">저장</button>
+    <button id="BtnGoback" onclick="BtnGoback()">리스트보기</button>
+    <script>
+    document.getElementById("index").value = '@ViewBag.index';
+    document.getElementById("Customer").value = '@ViewBag.cust';
+    document.getElementById("Product").value = '@ViewBag.prod';
+    document.getElementById("date").value = '@ViewBag.date';
+    document.getElementById("quantity").value = '@ViewBag.quantity';
+    </script>
+</div>

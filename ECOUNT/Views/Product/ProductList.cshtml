@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "품목리스트";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+@section Scripts{
+    <script src="~/Scripts/Pro.js"></script>
+}
+<br />
+<br />
+<label>품목 목록</label>
+<br />
+<br />
+<label>품목코드</label>
+<input id="codeSearch" />
+<label>품목타입</label>
+<select id="typeSearch">
+    <option value="All">전체</option>
+    <option value="Snack">Snack</option>
+    <option value="Beverage">Beverage</option>
+</select>
+<button id="BtnList" onclick="BtnList()">조회</button>
+<br />
+<br />
+<table>
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="checkAll" onchange="CheckAll()"></th>
+            <th>순번</th>
+            <th>품목코드</th>
+            <th>품목명</th>
+            <th>품목타입</th>
+        </tr>
+    </thead>
+    <tbody id="body"></tbody>
+</table>
+
+<br />
+<br />
+<button id="BtnNew" onclick="BtnNew()">신규등록</button>
+<button id="BtnEdit" onclick="BtnEdit()">수정</button>
+<button id="BtnEditSave" onclick="BtnEditSave()">저장</button>
+<button id="BtnDelete" onclick="BtnDelete()">삭제</button>

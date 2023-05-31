@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "거래처리스트";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+@section Scripts{
+    <script src="~/Scripts/Cus.js"></script>
+}
+<br />
+<br />
+<label>거래처 목록</label>
+<br />
+<br />
+<input id="search" placeholder="거래처코드를 입력하세요." />
+<button id="BtnList" onclick="BtnList()">조회</button>
+<br />
+<br />
+<table>
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="checkAll" onchange="CheckAll()"></th>
+            <th>순번</th>
+            <th>거래처코드</th>
+            <th>거래처명</th>
+        </tr>
+    </thead>
+    <tbody id="body"></tbody>
+</table>
+
+<br />
+<br />
+<button id="BtnNew" onclick="BtnNew()">신규등록</button>
+<button id="BtnEdit" onclick="BtnEdit()">수정</button>
+<button id="BtnDelete" onclick="BtnDelete()">삭제</button>

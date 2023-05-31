@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "재고현황";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+@section Scripts{
+    <script src="~/Scripts/Inven.js"></script>
+}
+<br />
+<br />
+<label>재고현황</label>
+<br />
+<br />
+<div id="datetime">
+    <label for="date">일자:</label>
+    <input type="date" id="date" value="">
+</div>
+<br />
+<br />
+<input id="search" placeholder="품목코드를 입력하세요." />
+<button id="BtnList" onclick="BtnList()">조회</button>
+<br />
+<br />
+<table border="1">
+    <thead>
+        <tr>
+            <th>순번</th>
+            <th>품목코드</th>
+            <th>품목명</th>
+            <th>수량</th>
+        </tr>
+    </thead>
+    <tbody id="body"></tbody>
+</table>
+
+<br />
+<br />

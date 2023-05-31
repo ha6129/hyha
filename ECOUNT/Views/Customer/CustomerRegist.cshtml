@@ -1,0 +1,23 @@
+﻿
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+@section Scripts{
+    <script src="~/Scripts/Cus.js"></script>
+}
+<br />
+<br />
+<label>거래처코드</label>
+<input id="CustCode" @ViewBag.tag />
+<br />
+<br />
+<label>거래처명</label>
+<input id="CustName" />
+<br />
+<br />
+<button id="BtnSaveCust" onclick="@ViewBag.button">저장</button>
+<button id="BtnGoback" onclick="BtnGoback()">리스트보기</button>
+<script>
+    document.getElementById("CustCode").value = '@ViewBag.custcode';
+    document.getElementById("CustName").value = '@ViewBag.custname';
+
+</script>

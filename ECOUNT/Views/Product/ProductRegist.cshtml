@@ -1,0 +1,50 @@
+﻿
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+@section Scripts{
+    <script src="~/Scripts/Pro.js"></script>
+}
+<br />
+<br />
+<label>품목코드</label>
+<input id="ProdCode" @ViewBag.tag />
+<br />
+<br />
+<label>품목명</label>
+<input id="ProdName" />
+<br />
+<br />
+<label>품목구분</label>
+<input type='radio'
+       name='Type'
+       value='Snack'
+       onclick='gettype(event)'
+       checked />과자
+
+<input type='radio'
+       name='Type'
+       value='Beverage'
+       onclick='gettype(event)' />음료
+<br />
+<br />
+<label for="safeqty">안전재고수량:</label>
+<input type="number" value="0" id="safeqty">
+<div id='result'></div>
+<br />
+<br />
+<button id="BtnSaveProduct" onclick="@ViewBag.button">저장</button>
+<button id="BtnGoback" onclick="BtnGoback()">리스트보기</button>
+<script>
+    document.getElementById("ProdCode").value = '@ViewBag.prodcode';
+    document.getElementById("ProdName").value = '@ViewBag.prodname';
+
+</script>
+@if (ViewBag.prodtype != "") {
+    <script>
+        var type = document.getElementsByName("Type")
+        for (i = 0; i < type.length; i++) {
+            if (type[i].value == "@ViewBag.prodtype")
+            { type[i].checked = true }
+        }
+    </script>
+}

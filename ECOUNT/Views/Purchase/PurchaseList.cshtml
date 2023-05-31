@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "구매조회";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+@section Scripts{
+    <script src="~/Scripts/Pur.js"></script>
+}
+<br />
+<br />
+<label>구매 조회</label>
+<br />
+<br />
+<input id="searchProd" placeholder="검색할 품목코드를 입력하세요." value="" />
+<input id="searchCust" placeholder="검색할 거래처코드를 입력하세요." value="" />
+<button id="BtnList" onclick="BtnList()">조회</button>
+<br />
+<br />
+<table border="1">
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="checkAll" onchange="CheckAll()"></th>
+            <th>순번</th>
+            <th>거래처코드</th>
+            <th>거래처명</th>
+            <th>품목코드</th>
+            <th>품목명</th>
+            <th>수량</th>
+            <th>구매일자</th>
+        </tr>
+    </thead>
+    <tbody id="body"></tbody>
+</table>
+
+<br />
+<br />
+<button id="BtnNew" onclick="BtnNew()">신규등록</button>
+<button id="BtnEdit" onclick="BtnEdit()">수정</button>
+<button id="BtnDelete" onclick="BtnDelete()">삭제</button>
+<br />
+<br />
+<button id="BtnInven" onclick="BtnInven()">재고현황보기</button>

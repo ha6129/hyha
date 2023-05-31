@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 내 ASP.NET 응용 프로그램</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("로그인", "Login", "User", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <li>@Html.ActionLink("Main", "Index", "Home")</li>
+                    <li>@Html.ActionLink("거래처등록", "CustomerRegist", "Customer")</li>
+                    <li>@Html.ActionLink("거래처리스트", "CustomerList", "Customer")</li>
+                    <li>@Html.ActionLink("품목등록", "ProductRegist", "Product")</li>
+                    <li>@Html.ActionLink("품목리스트", "ProductList", "Product")</li>
+                    <li>@Html.ActionLink("구매입력", "PurchaseRegist", "Purchase")</li>
+                    <li>@Html.ActionLink("구매조회", "PurchaseList", "Purchase")</li>
+                    <li>@Html.ActionLink("판매입력", "SaleRegist", "Sale")</li>
+                    <li>@Html.ActionLink("판매조회", "SaleList", "Sale")</li>
+                    <li>@Html.ActionLink("재고현황", "Inventory", "Inventory")</li>
+                </ul> 
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 내 ASP.NET 응용 프로그램</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
